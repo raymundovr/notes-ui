@@ -1,18 +1,26 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div id="app">
+  <h1>GraphQL Notes</h1>
+    <AllNotes v-bind:notes="notes" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AllNotes from './components/AllNotes.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    AllNotes
+  },
+  data: function () {
+return { notes: [{
+id: 'one',
+      title: "One",
+      content: "Content one",
+      date: new Date()
+    }]
+  }}
 }
 </script>
 
