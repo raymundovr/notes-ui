@@ -1,26 +1,32 @@
 <template>
 <div id="app">
   <h1>GraphQL Notes</h1>
-    <AllNotes v-bind:notes="notes" />
+    <AllNotes v-bind:notes="allNotes" />
   </div>
 </template>
 
 <script>
 import AllNotes from './components/AllNotes.vue'
+import gql from 'graphql-tag'
 
 export default {
   name: 'app',
   components: {
     AllNotes
   },
-  data: function () {
-return { notes: [{
-id: 'one',
-      title: "One",
-      content: "Content one",
-      date: new Date()
-    }]
-  }}
+  data() {
+return {
+  allNotes: [] }
+},
+apollo: {
+allNotes: gql`query {
+allNotes {
+title
+content
+date
+}
+}`,
+}
 }
 </script>
 
