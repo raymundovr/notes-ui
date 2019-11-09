@@ -1,6 +1,6 @@
 <template>
 <div class="all-notes">
-  <div v-for="note in notes" v-bind:key="note.id" class="note-card">
+  <div v-for="note in notes" v-bind:key="note._id" class="note-card">
     <div class="note-header">
       {{ note.title }}
     </div>
@@ -25,10 +25,13 @@ export default {
 </script>
 
 <style>
+  .all-notes {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  }
   .note-card {
   box-shadow: 0 1px 5px 1px rgba(0,0,0,0.1);
-  width: 20%;
-  margin-right: 1%;
   padding: 1rem;
   }
   .note-header {
